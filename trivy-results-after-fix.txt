@@ -1,0 +1,272 @@
+
+Report Summary
+
+┌───────────────────────────────────────────┬──────┬─────────────────┬─────────┐
+│                  Target                   │ Type │ Vulnerabilities │ Secrets │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ pom.xml                                   │ pom  │       16        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/accounts/contacts/requirements.txt    │ pip  │        5        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/accounts/userservice/requirements.txt │ pip  │        5        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/frontend/requirements.txt             │ pip  │        3        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/ledger/balancereader/pom.xml          │ pom  │        4        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/ledger/ledgerwriter/pom.xml           │ pom  │        4        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/ledger/transactionhistory/pom.xml     │ pom  │        4        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/ledgermonolith/pom.xml                │ pom  │        4        │    -    │
+├───────────────────────────────────────────┼──────┼─────────────────┼─────────┤
+│ src/loadgenerator/requirements.txt        │ pip  │        0        │    -    │
+└───────────────────────────────────────────┴──────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+pom.xml (pom)
+=============
+Total: 16 (HIGH: 12, CRITICAL: 4)
+
+┌───────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│                  Library                  │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                            │
+├───────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core │ CVE-2026-29145 │ CRITICAL │ fixed  │ 10.1.52           │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+│                                           ├────────────────┼──────────┤        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29145 │ CRITICAL │        │                   │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+│                                           ├────────────────┼──────────┤        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29145 │ CRITICAL │        │                   │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+│                                           ├────────────────┼──────────┤        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29145 │ CRITICAL │        │                   │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+└───────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+
+src/accounts/contacts/requirements.txt (pip)
+============================================
+Total: 5 (HIGH: 5, CRITICAL: 0)
+
+┌──────────────┬────────────────┬──────────┬────────┬───────────────────┬────────────────┬──────────────────────────────────────────────────────────────┐
+│   Library    │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version  │                            Title                             │
+├──────────────┼────────────────┼──────────┼────────┼───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ cryptography │ CVE-2026-26007 │ HIGH     │ fixed  │ 46.0.3            │ 46.0.5         │ cryptography: cryptography Subgroup Attack Due to Missing    │
+│              │                │          │        │                   │                │ Subgroup Validation for SECT Curves...                       │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-26007                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ protobuf     │ CVE-2026-0994  │          │        │ 6.33.2            │ 6.33.5, 5.29.6 │ python: protobuf: Protobuf: Denial of Service due to         │
+│              │                │          │        │                   │                │ recursion depth bypass                                       │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-0994                    │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ pyasn1       │ CVE-2026-23490 │          │        │ 0.6.1             │ 0.6.2          │ pyasn1: pyasn1: Denial of Service due to memory exhaustion   │
+│              │                │          │        │                   │                │ from malformed RELATIVE-OID...                               │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-23490                   │
+│              ├────────────────┤          │        │                   ├────────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-30922 │          │        │                   │ 0.6.3          │ pyasn1: pyasn1 Vulnerable to Denial of Service via Unbounded │
+│              │                │          │        │                   │                │ Recursion                                                    │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-30922                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ pyjwt        │ CVE-2026-32597 │          │        │ 2.10.1            │ 2.12.0         │ pyjwt: PyJWT accepts unknown `crit` header extensions (RFC   │
+│              │                │          │        │                   │                │ 7515 §4.1.11 MUST violation)...                              │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-32597                   │
+└──────────────┴────────────────┴──────────┴────────┴───────────────────┴────────────────┴──────────────────────────────────────────────────────────────┘
+
+src/accounts/userservice/requirements.txt (pip)
+===============================================
+Total: 5 (HIGH: 5, CRITICAL: 0)
+
+┌──────────────┬────────────────┬──────────┬────────┬───────────────────┬────────────────┬──────────────────────────────────────────────────────────────┐
+│   Library    │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version  │                            Title                             │
+├──────────────┼────────────────┼──────────┼────────┼───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ cryptography │ CVE-2026-26007 │ HIGH     │ fixed  │ 46.0.3            │ 46.0.5         │ cryptography: cryptography Subgroup Attack Due to Missing    │
+│              │                │          │        │                   │                │ Subgroup Validation for SECT Curves...                       │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-26007                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ protobuf     │ CVE-2026-0994  │          │        │ 6.33.2            │ 6.33.5, 5.29.6 │ python: protobuf: Protobuf: Denial of Service due to         │
+│              │                │          │        │                   │                │ recursion depth bypass                                       │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-0994                    │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ pyasn1       │ CVE-2026-23490 │          │        │ 0.6.1             │ 0.6.2          │ pyasn1: pyasn1: Denial of Service due to memory exhaustion   │
+│              │                │          │        │                   │                │ from malformed RELATIVE-OID...                               │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-23490                   │
+│              ├────────────────┤          │        │                   ├────────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-30922 │          │        │                   │ 0.6.3          │ pyasn1: pyasn1 Vulnerable to Denial of Service via Unbounded │
+│              │                │          │        │                   │                │ Recursion                                                    │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-30922                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼──────────────────────────────────────────────────────────────┤
+│ urllib3      │ CVE-2026-21441 │          │        │ 2.6.0             │ 2.6.3          │ urllib3: urllib3 vulnerable to decompression-bomb safeguard  │
+│              │                │          │        │                   │                │ bypass when following HTTP redirects (streaming...           │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-21441                   │
+└──────────────┴────────────────┴──────────┴────────┴───────────────────┴────────────────┴──────────────────────────────────────────────────────────────┘
+
+src/frontend/requirements.txt (pip)
+===================================
+Total: 3 (HIGH: 3, CRITICAL: 0)
+
+┌──────────────┬────────────────┬──────────┬────────┬───────────────────┬────────────────┬─────────────────────────────────────────────────────────────┐
+│   Library    │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version  │                            Title                            │
+├──────────────┼────────────────┼──────────┼────────┼───────────────────┼────────────────┼─────────────────────────────────────────────────────────────┤
+│ cryptography │ CVE-2026-26007 │ HIGH     │ fixed  │ 46.0.3            │ 46.0.5         │ cryptography: cryptography Subgroup Attack Due to Missing   │
+│              │                │          │        │                   │                │ Subgroup Validation for SECT Curves...                      │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-26007                  │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼─────────────────────────────────────────────────────────────┤
+│ protobuf     │ CVE-2026-0994  │          │        │ 6.33.2            │ 6.33.5, 5.29.6 │ python: protobuf: Protobuf: Denial of Service due to        │
+│              │                │          │        │                   │                │ recursion depth bypass                                      │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-0994                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼────────────────┼─────────────────────────────────────────────────────────────┤
+│ urllib3      │ CVE-2026-21441 │          │        │ 2.6.0             │ 2.6.3          │ urllib3: urllib3 vulnerable to decompression-bomb safeguard │
+│              │                │          │        │                   │                │ bypass when following HTTP redirects (streaming...          │
+│              │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-21441                  │
+└──────────────┴────────────────┴──────────┴────────┴───────────────────┴────────────────┴─────────────────────────────────────────────────────────────┘
+
+src/ledger/balancereader/pom.xml (pom)
+======================================
+Total: 4 (HIGH: 3, CRITICAL: 1)
+
+┌───────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│                  Library                  │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                            │
+├───────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core │ CVE-2026-29145 │ CRITICAL │ fixed  │ 10.1.52           │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+└───────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+
+src/ledger/ledgerwriter/pom.xml (pom)
+=====================================
+Total: 4 (HIGH: 3, CRITICAL: 1)
+
+┌───────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│                  Library                  │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                            │
+├───────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core │ CVE-2026-29145 │ CRITICAL │ fixed  │ 10.1.52           │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+└───────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+
+src/ledger/transactionhistory/pom.xml (pom)
+===========================================
+Total: 4 (HIGH: 3, CRITICAL: 1)
+
+┌───────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│                  Library                  │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                            │
+├───────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core │ CVE-2026-29145 │ CRITICAL │ fixed  │ 10.1.52           │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+└───────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
+
+src/ledgermonolith/pom.xml (pom)
+================================
+Total: 4 (HIGH: 3, CRITICAL: 1)
+
+┌───────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬─────────────────────────────────────────────────────────────┐
+│                  Library                  │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                            │
+├───────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core │ CVE-2026-29145 │ CRITICAL │ fixed  │ 10.1.52           │ 9.0.116, 10.1.53, 11.0.20 │ Apache Tomcat: Apache Tomcat: Authentication bypass due to  │
+│                                           │                │          │        │                   │                           │ CLIENT_CERT soft fail misconfiguration...                   │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29145                  │
+│                                           ├────────────────┼──────────┤        │                   │                           ├─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-29129 │ HIGH     │        │                   │                           │ Apache Tomcat: Apache Tomcat: Configured cipher preference  │
+│                                           │                │          │        │                   │                           │ order not preserved                                         │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-29129                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34483 │          │        │                   │ 9.0.116, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure due to │
+│                                           │                │          │        │                   │                           │ improper encoding in JsonAccessLogValve...                  │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34483                  │
+│                                           ├────────────────┤          │        │                   ├───────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                           │ CVE-2026-34487 │          │        │                   │ 9.0.117, 10.1.54, 11.0.21 │ Apache Tomcat: Apache Tomcat: Information disclosure via    │
+│                                           │                │          │        │                   │                           │ sensitive data in log files...                              │
+│                                           │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2026-34487                  │
+└───────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴─────────────────────────────────────────────────────────────┘
