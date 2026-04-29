@@ -28,7 +28,7 @@ click==8.3.1
     #   flask
 coverage[toml]==7.13.1
     # via pytest-cov
-cryptography==46.0.3
+cryptography==46.0.5
     # via -r requirements.in
 flask==3.1.2
     # via -r requirements.in
@@ -152,7 +152,7 @@ proto-plus==1.27.0
     # via
     #   google-api-core
     #   google-cloud-trace
-protobuf==6.33.2
+protobuf==6.33.5
     # via
     #   google-api-core
     #   google-cloud-trace
@@ -163,7 +163,7 @@ psycopg2-binary==2.9.11
     # via -r requirements.in
 py==1.11.0
     # via -r requirements.in
-pyasn1==0.6.1
+pyasn1==0.6.3
     # via
     #   -r requirements.in
     #   pyasn1-modules
@@ -210,7 +210,7 @@ typing-extensions==4.15.0
     #   opentelemetry-resourcedetector-gcp
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
-urllib3==2.6.0
+urllib3==2.6.3
     # via
     #   -r requirements.in
     #   requests
